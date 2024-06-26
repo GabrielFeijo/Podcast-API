@@ -1,6 +1,6 @@
 # Podcast-API
 
-Este projeto é uma solução para criar um carrinho de compras baseado no carrinho de compras de um E-Commerce, onde o carrinho armazena e calcula automaticamente o subtotal dos itens.
+A API de Cadastro de Podcasts permite aos desenvolvedores gerenciar informações básicas sobre podcasts.
 
 ## 📦 Estrutura do Projeto
 
