@@ -17,7 +17,7 @@ model Podcast {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   podcastName String
   episode     String
-  videoId     String
+  videoId     String   @unique
   cover       String
   link        String
   categories  String[]
