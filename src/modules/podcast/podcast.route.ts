@@ -1,7 +1,11 @@
 import { FastifyInstance } from 'fastify';
 import { $ref } from './podcast.schema';
-import { createPodcastHandler, getPodcastsHandler } from './podcast.controller';
-import { getPodcast } from './podcast.service';
+import {
+	createPodcastHandler,
+	deletePodcastHandler,
+	getPodcastHandler,
+	getPodcastsHandler,
+} from './podcast.controller';
 
 async function podcastRoutes(fastify: FastifyInstance) {
 	fastify.post(
@@ -38,11 +42,19 @@ async function podcastRoutes(fastify: FastifyInstance) {
 				},
 			},
 		},
-		async (request: any, reply) => {
-			const { id } = request.params;
-			const podcast = await getPodcast(id);
-			reply.send(podcast);
-		}
+		getPodcastHandler
+	);
+
+	fastify.delete(
+		'/:id',
+		{
+			schema: {
+				response: {
+					200: $ref('podcastResponseSchema'),
+				},
+			},
+		},
+		deletePodcastHandler
 	);
 }
 
